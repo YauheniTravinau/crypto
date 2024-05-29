@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Growth Table</title>
+    <link rel="stylesheet" href="crypto.css">
+</head>
+<body>
+<div class="container">
+    <h1>Crypto Growth Table</h1>
+    <div class="input-group">
+        <label for="marketCap">Current Market Cap:</label>
+        <input type="number" id="marketCap" placeholder="Enter market cap">
+        <select id="marketCapUnit">
+            <option value="1">Units</option>
+            <option value="1000">Thousands</option>
+            <option value="1000000">Millions</option>
+            <option value="1000000000">Billions</option>
+            <option value="1000000000000">Trillions</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="price">Current Price ($):</label>
+        <input type="number" step="0.0001" id="price" placeholder="Enter price">
+    </div>
+    <div class="input-group">
+        <label for="previousPrice">Previous Price ($):</label>
+        <input type="number" step="0.0001" id="previousPrice" placeholder="Enter previous price">
+    </div>
+    <button onclick="calculateGrowth()">Calculate</button> <!-- Исправлено на calculateGrowth -->
+    <div id="tableContainer">
+        <div id="growthTable"></div>
+    </div>
+</div>
+<script src="crypto.js"></script>
+</body>
+</html>
