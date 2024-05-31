@@ -4,27 +4,41 @@ window.onload = function() {
 };
 
 function calculateGrowth() {
-    const marketCap = parseFloat(document.getElementById('marketCap').value) || 0; // Установка значения по умолчанию, если поле пустое
+    const marketCap = parseFloat(document.getElementById('marketCap').value) || 0;
     const marketCapUnit = parseFloat(document.getElementById('marketCapUnit').value);
     const price = parseFloat(document.getElementById('price').value);
-    const previousPrice = parseFloat(document.getElementById('previousPrice').value) || price; // Использование текущей цены в качестве предыдущей, если поле пустое
+    const previousPrice = parseFloat(document.getElementById('previousPrice').value) || price;
+    const investmentAmount = parseFloat(document.getElementById('investmentAmount').value) || 0;
+    const investmentPrice = parseFloat(document.getElementById('investmentPrice').value) || 0;
 
     const adjustedMarketCap = marketCap * marketCapUnit;
     const growthFactor = previousPrice !== 0 ? price / previousPrice : null;
     const previousMarketCap = (adjustedMarketCap / price) * previousPrice;
 
     let tableHTML = '<table>';
-    tableHTML += '<tr><th>Parameter</th><th>Value</th></tr>';
+    tableHTML += '<tr><th>Параметр</th><th>Значение</th></tr>';
 
     if (!isNaN(previousMarketCap)) {
-        tableHTML += `<tr><td>Previous Market Cap</td><td>${formatMarketCap(previousMarketCap)}</td></tr>`;
+        tableHTML += `<tr><td>Предыдущая рыночная капитализация</td><td>${formatMarketCap(previousMarketCap)}</td></tr>`;
     }
 
     if (!isNaN(growthFactor)) {
-        tableHTML += `<tr><td>Growth Factor</td><td>x${growthFactor.toFixed(2)}</td></tr>`;
+        tableHTML += `<tr><td>Коэффициент роста</td><td>x${growthFactor.toFixed(2)}</td></tr>`;
     }
 
-    tableHTML += '<tr><th>Growth Factor</th><th>Price ($)</th><th>Market Cap</th></tr>';
+    if (investmentAmount && investmentPrice) {
+        const currentInvestmentValue = investmentAmount * (price / investmentPrice);
+        const earnings = currentInvestmentValue - investmentAmount;
+        tableHTML += `<tr><td>Текущая стоимость инвестиций</td><td>$${currentInvestmentValue.toFixed(2)}</td></tr>`;
+        tableHTML += `<tr><td>Прибыль</td><td>$${earnings.toFixed(2)}</td></tr>`;
+
+        const previousInvestmentValue = investmentAmount * (price / previousPrice);
+        const previousEarnings = previousInvestmentValue - investmentAmount;
+        tableHTML += `<tr><td>Стоимость инвестиций по предыдущей цене</td><td>$${previousInvestmentValue.toFixed(2)}</td></tr>`;
+        tableHTML += `<tr><td>Прибыль по предыдущей цене</td><td>$${previousEarnings.toFixed(2)}</td></tr>`;
+    }
+
+    tableHTML += '<tr><th>Коэффициент роста</th><th>Цена ($)</th><th>Рыночная капитализация</th></tr>';
 
     if (!isNaN(price)) {
         for (let i = 2; i <= 100; i++) {
@@ -40,7 +54,7 @@ function calculateGrowth() {
 }
 
 function formatMarketCap(value) {
-    const units = ["", "Thousand", "Million", "Billion", "Trillion"];
+    const units = ["", "Тысячи", "Миллионы", "Миллиарды", "Триллионы"];
     let unitIndex = 0;
     let reducedValue = value;
 

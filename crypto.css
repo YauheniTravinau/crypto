@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background: linear-gradient(135deg, #ece9e6, #ffffff);
 }
@@ -14,7 +14,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    width: 100%;
+    width: 90%;
     overflow: hidden;
     transition: transform 0.3s;
 }
@@ -28,27 +28,27 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center; /* Центрируем элементы в контейнере */
+    justify-content: center;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    flex: 1 100%; /* Заставляем label занимать всю ширину */
-    text-align: center; /* Центрируем текст */
+    flex: 1 100%;
+    text-align: center;
     color: #333;
     font-weight: bold;
 }
 
 input, select {
-    width: 60%;
+    width: calc(100% - 20px);
     padding: 10px;
-    margin-left: 10px;
+    margin: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
     transition: border-color 0.3s;
-    text-align: center; /* Центрируем текст в input и select */
+    text-align: center;
 }
 
 input:focus, select:focus {
@@ -96,31 +96,21 @@ th {
     font-weight: bold;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .container {
         padding: 20px;
     }
-
-    .input-group {
-        flex-direction: column;
-        align-items: center; /* Центрируем элементы */
-    }
-
     input, select {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
-        text-align: center; /* Центрируем текст */
-    }
-
-    button {
-        width: 100%;
-        padding: 12px 0;
+        width: calc(100% - 20px);
     }
 }
 
 @media (max-width: 480px) {
-    th, td {
-        padding: 8px;
+    .container {
+        padding: 15px;
+    }
+    input, select {
+        width: calc(100% - 20px);
     }
 }

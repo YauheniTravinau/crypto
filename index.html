@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Growth Table</title>
+    <title>Таблица роста криптовалют</title>
     <link rel="stylesheet" href="crypto.css">
 </head>
 <body>
 <div class="container">
-    <h1>Crypto Growth Table</h1>
+    <h1>Таблица роста криптовалют</h1>
     <div class="input-group">
-        <label for="marketCap">Current Market Cap:</label>
-        <input type="number" id="marketCap" placeholder="Enter market cap">
-        <select id="marketCapUnit">
-            <option value="1">Units</option>
-            <option value="1000">Thousands</option>
-            <option value="1000000">Millions</option>
-            <option value="1000000000">Billions</option>
-            <option value="1000000000000">Trillions</option>
+        <label for="marketCap">Текущая рыночная капитализация:</label>
+        <input type="number" id="marketCap" placeholder="Введите рыночную капитализацию">
+        <label for="marketCapUnit"></label><select id="marketCapUnit">
+            <option value="1">Единицы</option>
+            <option value="1000">Тысячи</option>
+            <option value="1000000">Миллионы</option>
+            <option value="1000000000">Миллиарды</option>
+            <option value="1000000000000">Триллионы</option>
         </select>
     </div>
     <div class="input-group">
-        <label for="price">Current Price ($):</label>
-        <input type="number" step="0.0001" id="price" placeholder="Enter price">
+        <label for="price">Текущая цена ($):</label>
+        <input type="number" step="0.0001" id="price" placeholder="Введите текущую цену">
     </div>
     <div class="input-group">
-        <label for="previousPrice">Previous Price ($):</label>
-        <input type="number" step="0.0001" id="previousPrice" placeholder="Enter previous price">
+        <label for="previousPrice">Предыдущая цена ($):</label>
+        <input type="number" step="0.0001" id="previousPrice" placeholder="Введите предыдущую цену">
     </div>
-    <button onclick="calculateGrowth()">Calculate</button> <!-- Исправлено на calculateGrowth -->
+    <div class="input-group">
+        <label for="investmentAmount">Сумма инвестиций ($):</label>
+        <input type="number" step="0.01" id="investmentAmount" placeholder="Введите сумму инвестиций">
+    </div>
+    <div class="input-group">
+        <label for="investmentPrice">Цена покупки ($):</label>
+        <input type="number" step="0.0001" id="investmentPrice" placeholder="Введите цену покупки">
+    </div>
+    <button onclick="calculateGrowth()">Рассчитать</button>
     <div id="tableContainer">
         <div id="growthTable"></div>
     </div>
