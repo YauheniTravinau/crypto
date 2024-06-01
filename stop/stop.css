@@ -1,4 +1,4 @@
-.container {
+.calculator {
     background: #ffffff;
     padding: 30px;
     border-radius: 10px;
@@ -10,28 +10,19 @@
     margin: 50px auto;
 }
 
-.container:hover {
+.calculator:hover {
     transform: translateY(-5px);
 }
 
-.input-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-label {
+.calculator label {
     display: block;
     margin-bottom: 5px;
-    flex: 1 100%;
-    text-align: center;
     color: #333;
     font-weight: bold;
+    text-align: center;
 }
 
-input, select {
+.calculator input[type="number"] {
     width: calc(100% - 20px);
     padding: 10px;
     margin: 5px;
@@ -42,11 +33,11 @@ input, select {
     text-align: center;
 }
 
-input:focus, select:focus {
+.calculator input[type="number"]:focus {
     border-color: #007bff;
 }
 
-button {
+.calculator button {
     padding: 12px 20px;
     background-color: #007bff;
     color: #fff;
@@ -56,52 +47,33 @@ button {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-button:hover {
+.calculator button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
-#tableContainer {
-    margin-top: 25px;
-    max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-th {
-    background-color: #007bff;
-    color: white;
+#result {
+    margin-top: 20px;
     font-weight: bold;
+    text-align: center;
+    color: #333;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .container {
+    .calculator {
         padding: 20px;
     }
-    input, select {
+    .calculator input[type="number"] {
         width: calc(100% - 20px);
     }
 }
 
 @media (max-width: 480px) {
-    .container {
+    .calculator {
         padding: 15px;
     }
-    input, select {
+    .calculator input[type="number"] {
         width: calc(100% - 20px);
     }
 }

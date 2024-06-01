@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Calculator</title>
+    <link rel="stylesheet" href="stop.css">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/menu/menu.css">
+</head>
+<body>
+<div id="menu"></div>
+<div class="calculator">
+    <label for="investment">Инвестиция ($):</label>
+    <input type="number" id="investment" value="" placeholder="Введите сумму инвестиции"><br><br>
+
+    <label for="purchasePrice">Цена покупки ($):</label>
+    <input type="number" id="purchasePrice" value="" placeholder="Введите цену покупки"><br><br>
+
+    <div id="stopLosses">
+        <div id="stopLoss1">
+            <label id="stopLoss1Percent">Процент продажи (%):</label>
+            <label>
+                <input type="number" class="sellPercent" value="" placeholder="Введите процент продажи">
+            </label>
+            <label id="stopLoss1Price">Цена продажи ($):</label>
+            <label>
+                <input type="number" class="sellPrice" value="" placeholder="Введите цену продажи">
+            </label><br><br>
+        </div>
+    </div>
+
+    <button onclick="addSell()">Добавить продажу</button><br><br>
+
+    <button id="calculateProfitBtn" onclick="calculateTotalProfit()">Рассчитать прибыль</button><br><br>
+
+
+    <div id="result"></div>
+</div>
+
+<script src="stop.js"></script>
+<script src="/global.js"></script>
+</body>
+</html>
